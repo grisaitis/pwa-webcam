@@ -1,7 +1,5 @@
 {
-  "name": "Simplest PWA",
-  "short_name": "Simplest PWA",
-  "description": "The Simplest PWA possible",
+  "name": "Camera PWA",
   "icons": [
     {
       "sizes": "192x192",

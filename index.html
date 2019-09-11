@@ -8,31 +8,23 @@
   <link rel="canonical" href="https://pwa.glitch.me/">
   <link rel="shortcut icon" href="https://cdn.glitch.com/355b9f14-b08b-4590-9270-46454889b15e%2Ffavicon.ico?1495985662065">
   <script src="/index.js"></script>
-  <script>
-    // This is just to force HTTPS (can't do it statically on glitch)
-    if(location.protocol == 'http:') location.protocol = 'https:';
-    if('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js')
-        .then(reg => console.log('Service Worker registered', reg))
-        .catch(err => console.error('Service Worker **not** registered', err));
-    }
-    else {
-      console.warn('Service Worker not supported in this browser');
-    }    
-  </script>
-  <title>Simplest PWA</title>
+  <script src="/scripts/forceHTTPS.js"></script>
+  <title>PWA with Camera</title>
   <meta name="theme-color" content="lightblue">
 </head>
 <body>
   <h1>
-    Camera + progressive web app
+    progressive web app + camera
   </h1>
-  <video id="webcam" width="100%" autoplay playsinline></video>
+  <video id="webcam" width="224" height="224" autoplay playsinline></video>
   <p>
-    Check out the code <a href="http://glitch.com/edit/#!/pwa-webcam">on glitch</a>.
+    Check out the code <a href="http://glitch.com/edit/#!/pwa-camera">on glitch</a>.
   </p>
-  <ul id="tests">
-  </ul>
-  <script src="/scripts/startwebcam.js"></script>
+  <ul id="tests"></ul>
+  <button>Take snapshot</button>
+  <canvas></canvas>
+  <ul id="classProbsList"></ul>
+  <script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
+  <script src="/scripts/setUp.js"></script>
 </body>
 </html>

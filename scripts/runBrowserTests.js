@@ -58,11 +58,6 @@ function testGetUserMedia() {
 
 function captureAndInjectCameraFeed(callback) {
   var video = document.getElementById("webcam");
-  // var video = document.createElement('video');
-  // video.width = 640;
-  // video.height = 480;
-  // video.setAttribute('autoplay', '');
-
   var constraints = {
     video: true,
     audio: false
@@ -182,10 +177,16 @@ function goToHTTPS() {
   location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
 }
 
-window.onload = function (e) {
+function onLoad (e) {
   if (runTests() < codes.error) {
     onTestsPassed();
+    console.log("ran onTestsPassed");
   } else {
     appendElement('p', 'Due to found errors camera streaming will not be injected.', codes.error);
   }
 };
+
+// window.onload = runTests;
+
+// (() => {})(); // trigger window.onload
+runTests();
